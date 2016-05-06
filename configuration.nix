@@ -12,17 +12,18 @@
 
   services.openssh.enable = true;
 
-
-  users.extraUsers.nixos = {
+  users.extraUsers.np = {
     isNormalUser = true;
-
-    extraGroups = ["wheel"];
-    openssh.authorizedKeys.keys =
-      [
-        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqq3LWPkSfldIKiBFK+/JYSQgf/uehjKaDOQFFMV/L8IdQ59H6r0swHj6Ohcg7ThkxaA01BcVQWJiHokza5t9Y3MqiMYu1qGCCfwXnVEHnM6ORacOFgYioY7AaAxmKR3Vg09oJKnMgDFPrtLUke2/6I9Mzj+eCOhTLaO0CJFgR6J2wwQV+PNF2eBNfT2WBzVk6/3LAlElfgwU67ct+NAJ1W6p5n3gTD2iRh/0mdq0UFf/wA8OC0+xc5tWZDbmdq2wFAzm/8CvgCqEC6vmCcTyrGQStj6TFO3nhEJN9z4oPNzT9sEeghWT+gEJ/q8LcO//I4Pw0flK/B90X0sLxa5rP (none)"
-      ];
-
+    uid = 1042;
+    group = "np";
+    description = "Nicolas Pouillard";
+    #shell = "${zsh}/bin/zsh";
+    extraGroups = []; # ["wheel"]; ???
+    openssh.authorizedKeys.keys = [
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSJdRdYhypZuVETziQagXQ5ikOHDU9lNZdwtejexcWUVsRnIV6mPh1ujygEZ7ZaOgKZ9M4Wmv9sgbSiwBW4LPtZTZvyMLrr3acwhT2NzI7DAHpA13Zyr/L53R5m+9XOqVDOBWhfvgOudDXbRVOETezWAtYnLAC/U7NI7FWJoBwwqyFrsvxGKes4LCdcX45Kwl72fK1H7NMLNDfdOyHAsERwfHaEhkcuDYJKExReKW8ISG6+Fsa51zH7NEuwykbaumi6R09TjDXLeoOUn1hIbE3MQ/zIBchq21DmuP97QEc/RZpqJUg8qj/YNg1NnWtaZ6D+zY/TE9dfjUhX/ox473D MonkeySphere2012-09-04T13:29:39 Nicolas Pouillard <np@nicolaspouillard.fr>"
+    ];
   };
+  users.extraGroups.np.gid = 1042;
 
   system.stateVersion = "15.09";
 }
